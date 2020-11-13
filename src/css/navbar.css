@@ -1,0 +1,33 @@
+.bg-light {
+  background-color: #eeeeee !important;
+}
+
+.nav-link {
+  font-family: 'Roboto', sans-serif;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #000000de !important;
+}
+
+.logo {
+  height: 35px;
+  margin: 5px;
+}
+
+.my-account {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.my-account .search-icon, .my-account .account-icon, .my-account .cart-icon {
+  height: 20px;
+  width: 20px;
+  margin: 0 10px 0 10px;
+}
+
+.my-account .search-icon:hover, .my-account .account-icon:hover, .my-account .cart-icon:hover {
+  cursor: pointer;
+}
+/*# sourceMappingURL=navbar.css.map */

@@ -1,0 +1,29 @@
+//Override bootstrap css
+.bg-light {
+    background-color: #eeeeee!important;
+}
+.nav-link{
+    font-family: 'Roboto', sans-serif;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: #000000de !important;
+}
+
+//main logo
+.logo{
+    height: 35px;
+    margin: 5px;
+}
+
+// icons
+.my-account{
+    display: flex;
+    .search-icon,.account-icon,.cart-icon{
+        height: 20px;
+        width: 20px;
+        margin: 0 10px 0 10px;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}   
