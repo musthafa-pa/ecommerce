@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useState,useEffect } from 'react';
+import {useSelector, useDispatch} from 'react-redux';
+
+import firebase from '../Database';
 import Navbar from './Navbar';
 import Cart from './Cart';
 import Products from './Products';
@@ -6,6 +9,35 @@ import '../css/dashboard.css';
 
 //Main dashboard component (components bundled here)
 export default function Dashboard() {
+
+    const [products, setProducts] = useState([]);
+    const store = useSelector(state => state);
+    const dispatch = useDispatch();
+
+    //Run side effect only when products changes in redux
+    useEffect(() => {
+        fetchProducts();
+        setProducts(store.products);
+        console.log(products)
+    },[]);
+
+
+    //Fetch all products and store in redux global state
+    async function fetchProducts(){
+        try{
+            let request = await firebase.database().ref(`/`).once('value', data => {});
+            let response = await request.val();
+            dispatch({
+                type:'ADD_PRODUCTS',
+                payload:response
+            });
+            setProducts(response);
+        }
+        catch(err){
+            console.log(err);
+        }
+    }
+
     return (
         <>
             <Navbar />
@@ -24,6 +56,8 @@ export default function Dashboard() {
                 <div className="total__products">
                     <h3 className="total__products__content">All Products (25 Products)</h3>
                 </div>
+
+                {/* Filter buttons */}
                 <div className="filters">
                     <div className="filters__btns">
                         <h3 className="filters__content">FILTERS:</h3>
@@ -34,7 +68,7 @@ export default function Dashboard() {
                         <button type="button" className="filters__btn_polo filter_btn">Polo T shirts</button>
                         <button type="button" className="filters__btn_shirts filter_btn">Shirt</button>
                     </div>
-
+                    {/* Sort */}
                     <div>
                         <select className="filters__sort_select">
                             <option value="Price low to high">Sort by: Price low to high</option>
@@ -45,6 +79,9 @@ export default function Dashboard() {
                 <div>
                     <hr />
                 </div>
+            </div>
+            <div className="main">
+                    <Products />
             </div>
         </>
     )

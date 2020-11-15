@@ -1,1 +1,91 @@
-/* No CSS *//*# sourceMappingURL=products.css.map */
+.products {
+  padding: 0 10px 0 50px;
+  width: 100vw;
+  display: block;
+  margin: auto;
+}
+
+.products .products__single {
+  height: 200px;
+  width: 100px;
+  background-color: #e7e7e7;
+  margin: 0 10px 0 10px;
+}
+
+.products .products__image {
+  height: 250px;
+  width: 200px;
+}
+
+.products .col-md-2 {
+  margin: 0 15px 0 15px;
+}
+
+.products .products__vendor {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  text-transform: capitalize;
+  color: #000000;
+  margin: 10px 0 0 0;
+}
+
+.products .products__name {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  text-transform: capitalize;
+  color: #878787;
+  margin: 10px 0 0 0;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.products .products__options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.products .products__prices {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.products .products__prices .products__price {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  text-transform: capitalize;
+  color: #000000;
+  margin: 10px 0 0 0;
+}
+
+.products .products__prices .products__comp_price {
+  font-family: Roboto;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 16px;
+  text-transform: capitalize;
+  text-decoration: line-through;
+  color: #707070;
+  margin: 10px 0 0 10px;
+}
+
+.products .products__prices .products__disount {
+  font-family: Roboto;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 16px;
+  text-transform: capitalize;
+  color: #ec3939c4;
+  margin: 10px 0 0 10px;
+}
+/*# sourceMappingURL=products.css.map */
