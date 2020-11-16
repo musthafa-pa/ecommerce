@@ -1,5 +1,5 @@
 .products {
-  padding: 0 10px 0 50px;
+  padding: 0 10px 0 70px;
   width: 100vw;
   display: block;
   margin: auto;
@@ -13,8 +13,8 @@
 }
 
 .products .products__image {
-  height: 250px;
-  width: 200px;
+  height: 300px;
+  width: 250px;
 }
 
 .products .col-md-2 {
@@ -30,6 +30,7 @@
   text-transform: capitalize;
   color: #000000;
   margin: 10px 0 0 0;
+  z-index: 1;
 }
 
 .products .products__name {
@@ -49,6 +50,54 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #d8d6d6;
+  width: 250px;
+  padding: 0 0 5px 10px;
+}
+
+.products .products__options .products__sizes {
+  height: 37px;
+  width: 35px;
+  background: #ededed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 50%;
+  margin: 10px 15px 0 0;
+}
+
+.products .products__options .products__sizes:hover {
+  cursor: pointer;
+}
+
+.products .products__options .products__option_value {
+  margin: 8px 0 0 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #00000088;
+}
+
+.products .products__addcart {
+  width: 250px;
+  background: white;
+  border: 2px solid #d64809;
+  border-radius: 5px;
+  height: 35px;
+  margin: 5px 0 0 0;
+}
+
+.products .products__addcart:focus {
+  outline: none;
 }
 
 .products .products__prices {
@@ -79,7 +128,7 @@
   margin: 10px 0 0 10px;
 }
 
-.products .products__prices .products__disount {
+.products .products__prices .products__comp_price .products__disount {
   font-family: Roboto;
   font-style: normal;
   font-size: 12px;

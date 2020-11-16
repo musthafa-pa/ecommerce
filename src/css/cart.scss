@@ -1,0 +1,98 @@
+.breadcrumbs {
+    .breadcrumbs__content {
+        font-family: 'Roboto', sans-serif;
+        font-size: 15px;
+    }
+}
+
+.cart {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    .cart__items_list {
+        display: flex;
+        flex-direction: column;
+        margin: 50px 0 0 20px;
+
+        .cart__single {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin: 10px 0 0 20px;
+            background-color: #f3f3f3;
+            width: 900px;
+            height: 120px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 2px #efefef;
+
+            &:hover{
+                background-color: #eeeeee;
+
+            }
+
+            .cart_products {
+                display: flex;
+                flex-direction: column;
+                width: 450px;
+            }
+
+            .cart__item_count {
+                margin: 0 0 0 50px;
+
+                .cart__count_plus,
+                .cart__count_minus {
+                    width: 30px;
+                    height: 30px;
+                    border: none;
+                    background: none;
+                    font-size: 15px;
+                    font-weight: 600;
+                    &:focus{
+                        outline: none
+                    }
+                }
+
+                .cart__item_value {
+                    height: 30px;
+                    width: 30px;
+                    background: #ed754140;
+                    padding: 5px;
+                    color: #3b3b3b;
+                    font-weight: 600;
+                    border-radius: 4px;
+                }
+            }
+            .cart__prices{
+                width: 150px;
+                .cart__price {
+                    color: #292929;
+                    font-weight: 600;
+                    margin: 0 0 0 70px;
+                }
+            }
+            
+            .cart__image {
+                height: 100px;
+                width: 80px;
+                margin: 0 20px 0 10px;
+                border-radius: 10px;
+            }
+
+            .cart__delete {
+                height: 20px;
+                width: 20px;
+                margin: 0 0 0 30px;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }
+
+    }
+    .cart__payment{
+        width: 400px;
+        height: 600px;
+        background-color: #ebebeb;
+        border-radius: 10px;
+    }
+}

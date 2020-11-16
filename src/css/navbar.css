@@ -21,13 +21,28 @@
   display: flex;
 }
 
-.my-account .search-icon, .my-account .account-icon, .my-account .cart-icon {
+.my-account .search-icon,
+.my-account .account-icon,
+.my-account .cart-icon {
   height: 20px;
   width: 20px;
   margin: 0 10px 0 10px;
 }
 
-.my-account .search-icon:hover, .my-account .account-icon:hover, .my-account .cart-icon:hover {
+.my-account .search-icon:hover,
+.my-account .account-icon:hover,
+.my-account .cart-icon:hover {
   cursor: pointer;
+}
+
+.my-account .cart-items {
+  background: #d24709;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  margin: -9px -1px 0px -19px;
+  padding: 2px 0 0px 6px;
+  color: white;
+  font-size: 12px;
 }
 /*# sourceMappingURL=navbar.css.map */

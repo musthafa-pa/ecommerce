@@ -1,29 +1,46 @@
 //Override bootstrap css
 .bg-light {
-    background-color: #eeeeee!important;
+    background-color: #eeeeee !important;
 }
-.nav-link{
+
+.nav-link {
     font-family: 'Roboto', sans-serif;
 }
+
 .navbar-light .navbar-nav .nav-link {
     color: #000000de !important;
 }
 
 //main logo
-.logo{
+.logo {
     height: 35px;
     margin: 5px;
 }
 
 // icons
-.my-account{
+.my-account {
     display: flex;
-    .search-icon,.account-icon,.cart-icon{
+
+    .search-icon,
+    .account-icon,
+    .cart-icon {
         height: 20px;
         width: 20px;
         margin: 0 10px 0 10px;
-        &:hover{
+
+        &:hover {
             cursor: pointer;
         }
     }
-}   
+
+    .cart-items {
+        background: #d24709;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        margin: -9px -1px 0px -19px;
+        padding: 2px 0 0px 6px;
+        color: rgb(255, 255, 255);
+        font-size: 12px;
+    }
+}

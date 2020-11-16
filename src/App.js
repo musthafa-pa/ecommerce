@@ -7,7 +7,7 @@ import Cart from './components/Cart';
 
 //Main App file.
 //Wrapped inside redux global provider
-//Defined routes
+//Defined routes  
 export default function App(){
   return(
     <Provider store={mainStore}>

@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import Logo from '../assets/images/Logo.svg';
 import Search from '../assets/images/search.png';
 import CartIcon from '../assets/images/shopping.png';
@@ -7,6 +9,14 @@ import '../css/navbar.css';
 
 //main navbar component
 export default function Navbar() {
+    const history = useHistory();
+    const store = useSelector(state => state);
+    const cart = store.cart;
+
+    const openCart = () => {
+        history.push("/cart");
+    }
+
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -43,7 +53,9 @@ export default function Navbar() {
                         <span>Search</span>
                         <img src={Search} className="search-icon" alt="search"></img>
                         <img src={Account} className="account-icon" alt="search"></img>
-                        <img src={CartIcon} className="cart-icon" alt="search"></img>
+                        <img src={CartIcon} onClick={openCart} className="cart-icon" alt="search">
+                        </img>
+                        <div className="cart-items">{cart.length}</div>
                     </div>
                 </div>
             </nav>
