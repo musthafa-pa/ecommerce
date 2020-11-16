@@ -5,13 +5,11 @@ import Navbar from './Navbar';
 import '../css/cart.css';
 import delIcon from '../assets/images/delete.png';
 
-export default function Cart(props) {
+export default function Cart() {
 
-    const [cartItems, setCartItems] = useState([]);
     const store = useSelector(state => state);
-    // setCartItems(store.cart);
     let itemCart = store.cart;
-
+    console.log(itemCart)
     return (
         <>
             <Navbar />
