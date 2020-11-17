@@ -3,7 +3,7 @@
     width: 100vw;
     display: block;
     margin: auto;
-
+    
     .products__single {
         height: 200px;
         width: 100px;
@@ -113,16 +113,16 @@
             text-decoration: line-through;
             color: #707070;
             margin: 10px 0 0 10px;
-
-            .products__disount {
-                font-family: Roboto;
-                font-style: normal;
-                font-size: 12px;
-                line-height: 16px;
-                text-transform: capitalize;
-                color: #ec3939c4;
-                margin: 10px 0 0 10px;
-            }
+        }
+        .products__disount {
+            font-family: Roboto;
+            font-style: normal;
+            font-size: 12px;
+            line-height: 16px;
+            text-transform: capitalize;
+            text-decoration: none !important;
+            color: #ec3939c4;
+            margin: 10px 0 0 10px;
         }
 
     }

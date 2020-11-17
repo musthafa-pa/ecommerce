@@ -1,12 +1,22 @@
 import firebase from 'firebase';
+
+//Get key and data from environment
+const {
+    REACT_APP_API_KEY,
+    REACT_APP_DB_URL,
+    REACT_APP_APP_ID,
+    REACT_APP_PROJ_ID,
+    REACT_APP_AUTH_DOMAIN,
+} = process.env;
+
 let firebaseConfig = {
-    apiKey: "AIzaSyBXGOs9rOR6qDluCIHzHbr76t3F-MF2Pss",
-    authDomain: "shoptrade-21ec6.firebaseapp.com",
-    databaseURL: "https://shoptrade-21ec6.firebaseio.com",
-    projectId: "shoptrade-21ec6",
+    apiKey: REACT_APP_API_KEY,
+    authDomain: REACT_APP_AUTH_DOMAIN,
+    databaseURL: REACT_APP_DB_URL,
+    projectId: REACT_APP_PROJ_ID,
     storageBucket: "shoptrade-21ec6.appspot.com",
     messagingSenderId: "214757467231",
-    appId: "1:214757467231:web:6783ad05bef68e4de767ea",
+    appId: REACT_APP_APP_ID,
     measurementId: "G-HSNDGXXQ2D"
 };
 // Initialize Firebase

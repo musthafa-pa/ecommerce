@@ -128,12 +128,13 @@
   margin: 10px 0 0 10px;
 }
 
-.products .products__prices .products__comp_price .products__disount {
+.products .products__prices .products__disount {
   font-family: Roboto;
   font-style: normal;
   font-size: 12px;
   line-height: 16px;
   text-transform: capitalize;
+  text-decoration: none !important;
   color: #ec3939c4;
   margin: 10px 0 0 10px;
 }

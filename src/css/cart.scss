@@ -1,4 +1,5 @@
 .breadcrumbs {
+    margin: 10px 0 0 10px;
     .breadcrumbs__content {
         font-family: 'Roboto', sans-serif;
         font-size: 15px;
@@ -55,7 +56,7 @@
                 .cart__item_value {
                     height: 30px;
                     width: 30px;
-                    background: #ed754140;
+                    background: #ffffff;
                     padding: 5px;
                     color: #3b3b3b;
                     font-weight: 600;
@@ -63,7 +64,7 @@
                 }
             }
             .cart__prices{
-                width: 150px;
+                width: 120px;
                 .cart__price {
                     color: #292929;
                     font-weight: 600;
@@ -91,8 +92,37 @@
     }
     .cart__payment{
         width: 400px;
-        height: 600px;
+        height: 400px;
         background-color: #ebebeb;
         border-radius: 10px;
+        margin: 50px 0 0 0;
+        padding: 30px 0 0 0;
+
+        .cart__payment_name,
+        .cart__payment_email,
+        .cart__payment_phone{
+            height: 45px;
+            width: 349px;
+            border: none;
+            margin: 13px 0 5px 28px;
+            border-radius: 7px;
+            padding: 5px;
+        }
+        .cart__payment_btn{
+            margin: 10px 0 10px 27px;
+            width: 349px;
+            height: 37px;
+            border: none;
+            background: #f77336;
+            color: white;
+            font-weight: 600;
+            border-radius: 5px;
+            &:hover{
+                background: #f05811;
+            }
+        }
+        .cart__payment_info{
+            margin: 13px 0 5px 28px;
+        }
     }
 }

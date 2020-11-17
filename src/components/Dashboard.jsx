@@ -1,5 +1,5 @@
-import React, { useState,useEffect } from 'react';
-import {useSelector, useDispatch} from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 import firebase from '../Database';
 import Navbar from './Navbar';
@@ -13,29 +13,54 @@ export default function Dashboard() {
     const [products, setProducts] = useState([]);
     const store = useSelector(state => state);
     const dispatch = useDispatch();
+    let prodTag = store.prodTag;
 
     //Run side effect only when products changes in redux
     useEffect(() => {
         fetchProducts();
         setProducts(store.products);
-        console.log(products)
     },[]);
 
-
     //Fetch all products and store in redux global state
-    async function fetchProducts(){
-        try{
-            let request = await firebase.database().ref(`/`).once('value', data => {});
+    async function fetchProducts() {
+        try {
+            let request = await firebase.database().ref(`/`).once('value', data => { });
             let response = await request.val();
             dispatch({
-                type:'ADD_PRODUCTS',
-                payload:response
+                type: 'ADD_PRODUCTS',
+                payload: response
             });
             setProducts(response);
         }
-        catch(err){
+        catch (err) {
             console.log(err);
         }
+    }
+
+    //Render filter buttons
+    let buttons = {
+        "AllProducts": "All Products",
+        "Denim": "Denim",
+        "T-shirt": "T-shirt",
+        "AllProducts": "All Products",
+        "jacket": "Jackets",
+        "shirt": "Shirts"
+    }
+    let btnUI = [];
+    Object.entries(buttons).forEach(([key, val]) => {
+        if(key == prodTag){
+            btnUI.push(<button type="button" onClick={() => updateProdTag(key)} className="filter_btn active__filter">{val}</button>)
+        }else{
+            btnUI.push(<button type="button" onClick={() => updateProdTag(key)} className="filter_btn">{val}</button>)
+        }
+    })
+
+    //Update selected product tag in redux
+    const updateProdTag = (tag) => {
+        dispatch({
+            type: 'UPDATE_PROD_TAG',
+            payload: tag
+        })
     }
 
     return (
@@ -61,12 +86,11 @@ export default function Dashboard() {
                 <div className="filters">
                     <div className="filters__btns">
                         <h3 className="filters__content">FILTERS:</h3>
-                        <button type="button" className="filters__btn_all filter_btn">All Products</button>
-                        <button type="button" className="filters__btn_tshirts filter_btn">T shirts</button>
-                        <button type="button" className="filters__btn_denim filter_btn">Denim</button>
-                        <button type="button" className="filters__btn_sweats filter_btn">Sweatshirts</button>
-                        <button type="button" className="filters__btn_polo filter_btn">Polo T shirts</button>
-                        <button type="button" className="filters__btn_shirts filter_btn">Shirt</button>
+
+                        {
+                            btnUI
+                        }
+
                     </div>
                     {/* Sort */}
                     <div>
@@ -81,7 +105,7 @@ export default function Dashboard() {
                 </div>
             </div>
             <div className="main">
-                    <Products />
+                <Products />
             </div>
         </>
     )

@@ -105,13 +105,18 @@
   border-radius: 50px;
   width: 115px;
   height: 36px;
-  background: #f4f4f4;
+  background: #ffffff;
   border: 1px solid #d7d5d5;
   margin: 0 10px 0 0;
 }
 
 .wrapper .filters .filter_btn:focus {
   outline: none;
+}
+
+.wrapper .filters .active__filter {
+  background: #e0e0e0;
+  border: 2px solid #747272;
 }
 
 .wrapper .filters .filters__sort_select {
