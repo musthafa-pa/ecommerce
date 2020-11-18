@@ -6,6 +6,7 @@ import '../css/products.css';
 export default function Products() {
     const [prodId, setId] = useState(0);
     const [selected, setSelected] = useState({});
+    const [btnValue, setBtnValue] = useState("Add to Cart");
 
     const store = useSelector(state => state);
     const dispatch = useDispatch();
@@ -16,7 +17,6 @@ export default function Products() {
 
     //Run only when prod tag changes
     useEffect(() => {
-        console.log(prodTag)
         renderProducts(prodTag);
     }, [prodTag])
 
@@ -31,20 +31,22 @@ export default function Products() {
 
     //Display add cart button
     const showAddCartBtn = (id) => {
+        setBtnValue("Add to Cart")
         setId(id);
     }
 
     //Add selected items to cart
     const addItemsToCart = () => {
-        console.log(selected)
+        
         dispatch({
             type: 'ADD_TO_CART',
             payload: [selected]
         });
+        setBtnValue("Added to cart")
     }
 
     const renderProducts = (prodTag) => {
-        
+
         finalProds = []; columns = [];
         //FIlter based on selected tag
         if (prodTag !== "AllProducts") {
@@ -52,7 +54,6 @@ export default function Products() {
                 return prod["tag"] == prodTag;
             })
         }
-
 
         prods.forEach((prod, i) => {
             // prepare the array
@@ -101,7 +102,7 @@ export default function Products() {
                     {/* display button onClick of size */}
                     {
                         prodId === prod.id ?
-                            <button type="button" onClick={addItemsToCart} className="products__addcart">Add to cart</button>
+                            <button type="button" onClick={addItemsToCart} className="products__addcart">{btnValue}</button>
                             :
                             null
                     }
@@ -116,19 +117,18 @@ export default function Products() {
                     </div>
                 </div>
             );
-                    
+
             if (prods.length >= 5) {
                 // after five items add a new row 
                 if ((i + 1) % 5 === 0) {
                     finalProds.push(<div className="row mt-4" key={i}>{columns}</div>);
                     columns = [];
                 }
-            }else{
+            } else {
                 finalProds.push(columns);
                 columns = [];
             }
         });
-
         return finalProds;
     }
 

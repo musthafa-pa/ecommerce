@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import firebase from '../Database';
 import Navbar from './Navbar';
-import Cart from './Cart';
 import Products from './Products';
 import '../css/dashboard.css';
 

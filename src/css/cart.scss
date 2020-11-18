@@ -1,5 +1,6 @@
 .breadcrumbs {
     margin: 10px 0 0 10px;
+
     .breadcrumbs__content {
         font-family: 'Roboto', sans-serif;
         font-size: 15px;
@@ -10,10 +11,14 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+
     .cart__items_list {
         display: flex;
         flex-direction: column;
         margin: 50px 0 0 20px;
+        position: absolute;
+        left: 0;
+        z-index: 1;
 
         .cart__single {
             display: flex;
@@ -26,7 +31,7 @@
             border-radius: 10px;
             box-shadow: 2px 2px 2px #efefef;
 
-            &:hover{
+            &:hover {
                 background-color: #eeeeee;
 
             }
@@ -48,7 +53,8 @@
                     background: none;
                     font-size: 15px;
                     font-weight: 600;
-                    &:focus{
+
+                    &:focus {
                         outline: none
                     }
                 }
@@ -63,15 +69,17 @@
                     border-radius: 4px;
                 }
             }
-            .cart__prices{
+
+            .cart__prices {
                 width: 120px;
+
                 .cart__price {
                     color: #292929;
                     font-weight: 600;
                     margin: 0 0 0 70px;
                 }
             }
-            
+
             .cart__image {
                 height: 100px;
                 width: 80px;
@@ -83,24 +91,28 @@
                 height: 20px;
                 width: 20px;
                 margin: 0 0 0 30px;
-                &:hover{
+
+                &:hover {
                     cursor: pointer;
                 }
             }
         }
 
     }
-    .cart__payment{
+
+    .cart__payment {
         width: 400px;
         height: 400px;
         background-color: #ebebeb;
         border-radius: 10px;
-        margin: 50px 0 0 0;
+        margin: 50px 32px 0 0;
         padding: 30px 0 0 0;
+        position: absolute;
+        right: 0;
 
         .cart__payment_name,
         .cart__payment_email,
-        .cart__payment_phone{
+        .cart__payment_phone {
             height: 45px;
             width: 349px;
             border: none;
@@ -108,7 +120,8 @@
             border-radius: 7px;
             padding: 5px;
         }
-        .cart__payment_btn{
+
+        .cart__payment_btn {
             margin: 10px 0 10px 27px;
             width: 349px;
             height: 37px;
@@ -117,11 +130,13 @@
             color: white;
             font-weight: 600;
             border-radius: 5px;
-            &:hover{
+
+            &:hover {
                 background: #f05811;
             }
         }
-        .cart__payment_info{
+
+        .cart__payment_info {
             margin: 13px 0 5px 28px;
         }
     }

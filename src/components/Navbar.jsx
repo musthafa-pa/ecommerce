@@ -13,10 +13,7 @@ export default function Navbar() {
     const store = useSelector(state => state);
     const cart = store.cart;
 
-    const openCart = () => {
-        history.push("/cart");
-    }
-
+    
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -39,13 +36,13 @@ export default function Navbar() {
                             </div>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">About Us</a>
+                            <a className="nav-link" onClick={() => history.push("/about")} href="#">About Us</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Our Stores</a>
+                            <a className="nav-link" onClick={() => history.push("/stores")} href="#">Our Stores</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Contact Us</a>
+                            <a className="nav-link" onClick={() => history.push("/contact")} href="#">Contact Us</a>
                         </li>
                     </ul>
                     {/* Icons */}
@@ -53,7 +50,7 @@ export default function Navbar() {
                         <span>Search</span>
                         <img src={Search} className="search-icon" alt="search"></img>
                         <img src={Account} className="account-icon" alt="search"></img>
-                        <img src={CartIcon} onClick={openCart} className="cart-icon" alt="search">
+                        <img src={CartIcon} onClick={() => history.push("/cart")} className="cart-icon" alt="search">
                         </img>
                         <div className="cart-items">{cart.length}</div>
                     </div>

@@ -29,6 +29,9 @@
       -ms-flex-direction: column;
           flex-direction: column;
   margin: 50px 0 0 20px;
+  position: absolute;
+  left: 0;
+  z-index: 1;
 }
 
 .cart .cart__items_list .cart__single {
@@ -127,8 +130,10 @@
   height: 400px;
   background-color: #ebebeb;
   border-radius: 10px;
-  margin: 50px 0 0 0;
+  margin: 50px 32px 0 0;
   padding: 30px 0 0 0;
+  position: absolute;
+  right: 0;
 }
 
 .cart .cart__payment .cart__payment_name,

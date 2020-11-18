@@ -1,5 +1,5 @@
 .products {
-  padding: 0 10px 0 50px;
+  padding: 0 10px 0 70px;
   width: 100vw;
   display: block;
   margin: auto;
@@ -19,6 +19,13 @@
 
 .products .col-md-2 {
   margin: 0 15px 0 15px;
+  padding: 15px 0 10px 20px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.products .col-md-2:hover {
+  background-color: rgba(241, 241, 241, 0.849);
 }
 
 .products .products__vendor {
