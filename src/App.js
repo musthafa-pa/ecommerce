@@ -12,7 +12,7 @@ import { About, Contact, Stores } from './components/NavComponents';
 export default function App(){
   return(
     <Provider store={mainStore}>
-      <Router basename="ecommerce">
+      <Router basename="shoptrade">
         <Route exact path="/" component={Dashboard}></Route>
         <Route exact path="/dashboard" component={Dashboard}></Route> 
         <Route exact path="/cart" component={Cart}></Route>

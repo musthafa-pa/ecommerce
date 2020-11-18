@@ -1,19 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+
+//Local imports
 import Logo from '../assets/images/Logo.svg';
 import Search from '../assets/images/search.png';
 import CartIcon from '../assets/images/shopping.png';
 import Account from '../assets/images/account.png';
 import '../css/navbar.css';
 
-//main navbar component
+//main navbar component ( using bootstrap navbar )
 export default function Navbar() {
+
+    //For navigation
     const history = useHistory();
+
+    //Redux state and states
     const store = useSelector(state => state);
     const cart = store.cart;
 
-    
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -45,7 +50,8 @@ export default function Navbar() {
                             <a className="nav-link" onClick={() => history.push("/contact")} href="#">Contact Us</a>
                         </li>
                     </ul>
-                    {/* Icons */}
+
+                    {/* Right end Icons */}
                     <div className="my-account">
                         <span>Search</span>
                         <img src={Search} className="search-icon" alt="search"></img>

@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
+//Local imports
 import Navbar from './Navbar';
 import '../css/cart.css';
 import delIcon from '../assets/images/delete.png';
 
-
+//Cart component
 export default function Cart() {
 
+    //Fetch store and store states
     const store = useSelector(state => state);
     const dispatch = useDispatch();
     let itemCart = store.cart;
     let price = store.total_cart_price;
     let count = store.total_items;
 
+    //Delete an item from cart
     const deleteFromCart = (prod) => {
         dispatch({
             type: 'REMOVE_FROM_CART',
@@ -21,6 +24,7 @@ export default function Cart() {
         })
     }
 
+    //Increase or Decrease item's count in cart
     const addOrDelete = (prod, type) => {
         if (type == "plus") {
             dispatch({
@@ -36,6 +40,7 @@ export default function Cart() {
         }
     }
 
+    //render items in cart
     const displayCartItems = () => {
         let items = [];
 
@@ -77,7 +82,8 @@ export default function Cart() {
                         displayCartItems()
                     }
                 </div>
-
+                
+                {/* Cart payment form */}
                 <div className="cart__payment">
                     <input type="text" className="cart__payment_name" placeholder="Enter name"></input>
                     <input type="text" className="cart__payment_email" placeholder="Enter email"></input>

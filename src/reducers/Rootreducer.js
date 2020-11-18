@@ -49,7 +49,7 @@ export default function rootReducer(state = globalStore, action){
             getPriceCount();
             return {...state};
 
-        case 'ADD_ITEMS':
+        case 'ADD_ITEMS': //Increase count
             state.cart = state.cart.filter(prod => {
                 if(prod == action.payload){
                     if(prod.quantity >= 1){
@@ -61,7 +61,7 @@ export default function rootReducer(state = globalStore, action){
             getPriceCount();
             return {...state};
 
-        case 'REMOVE_ITEMS':
+        case 'REMOVE_ITEMS': //Decrease count
             state.cart = state.cart.filter(prod => {
                 if(prod == action.payload){
                     if(prod.quantity >= 1){

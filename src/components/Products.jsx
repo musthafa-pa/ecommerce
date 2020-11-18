@@ -1,18 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
+//Local imports
 import '../css/products.css';
 
-
+//Render products component
 export default function Products() {
+
+    //States
     const [prodId, setId] = useState(0);
     const [selected, setSelected] = useState({});
     const [btnValue, setBtnValue] = useState("Add to Cart");
 
+    //redux state and dispatch action
     const store = useSelector(state => state);
     const dispatch = useDispatch();
 
+    //Store states
     let prods = store.products;
     let prodTag = store.prodTag;
+
+    //Render items in these arrays
     let finalProds = [], columns = [];
 
     //Run only when prod tag changes
@@ -20,7 +28,7 @@ export default function Products() {
         renderProducts(prodTag);
     }, [prodTag])
 
-    //Get selected products and chosen option
+    //Get selected products and selected option
     const getItems = (prod_id, prod_option) => {
         let select = store.products.find(prod => prod.id == prod_id);
         select.sel_size = prod_option;
@@ -31,23 +39,24 @@ export default function Products() {
 
     //Display add cart button
     const showAddCartBtn = (id) => {
-        setBtnValue("Add to Cart")
+        setBtnValue("Add to Cart");
         setId(id);
     }
 
     //Add selected items to cart
     const addItemsToCart = () => {
-        
         dispatch({
             type: 'ADD_TO_CART',
             payload: [selected]
         });
-        setBtnValue("Added to cart")
+        setBtnValue("Added to cart");
     }
 
+    //Render products based on filter tag in redux
     const renderProducts = (prodTag) => {
 
         finalProds = []; columns = [];
+
         //FIlter based on selected tag
         if (prodTag !== "AllProducts") {
             prods = prods.filter(prod => {
@@ -55,6 +64,7 @@ export default function Products() {
             })
         }
 
+        //Loop through each products
         prods.forEach((prod, i) => {
             // prepare the array
             columns.push(
@@ -82,6 +92,7 @@ export default function Products() {
                                     "US 13": "13"
                                 }
 
+                                //Change size here (But actual size is used when clicked)
                                 if (option.value in uk_sizes) {
                                     size = uk_sizes[option.value];
                                 } else if (option.value in us_sizes) {
@@ -99,7 +110,7 @@ export default function Products() {
                         }
                     </div>
 
-                    {/* display button onClick of size */}
+                    {/* display button for a particular product's onClick of size */}
                     {
                         prodId === prod.id ?
                             <button type="button" onClick={addItemsToCart} className="products__addcart">{btnValue}</button>
@@ -117,7 +128,8 @@ export default function Products() {
                     </div>
                 </div>
             );
-
+            
+            //Check total array length
             if (prods.length >= 5) {
                 // after five items add a new row 
                 if ((i + 1) % 5 === 0) {
@@ -131,7 +143,6 @@ export default function Products() {
         });
         return finalProds;
     }
-
 
     return (
         <>

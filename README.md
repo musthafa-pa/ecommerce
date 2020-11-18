@@ -1,17 +1,27 @@
 
 ### `Folder structure`
 
-App.js = Main app start point
-reducer/Rootreducer.js = Redux store and operations
-store/Mainstore.js = create a redux store
-components/
-    Dashboard.jsx = React component displays all products
-    Cart.jsx = Display products in cart
-    Products = Displays single products
-css/
-    dashboard.scss => dashboard.css
-    cart.scss => cart.css
-    products.scss => products.scss
+App.js = Main app start point.\
+
+store/Mainstore.js = create a redux store.\
+reducer/Rootreducer.js = Redux store and operations.\
+
+components.\
+    Navbar.js => React component for Navbar.\
+    Dashboard.jsx => React component displays all products.\
+    Cart.jsx => Display products in cart.\
+    Products => Displays single products.\
+    NavComponents => React components for About,Contact and Stores.\
+    Loader => React loader component.\
+
+css.\
+    navbar.scss => navbar.css.\
+    dashboard.scss => dashboard.css.\
+    cart.scss => cart.css.\
+    products.scss => products.scss.\
+
+Database.\
+    Database.js => Firebase database file.\
 
 
 ## Available Scripts

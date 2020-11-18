@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
+//Local imports
 import firebase from '../Database';
 import Navbar from './Navbar';
 import Products from './Products';
@@ -13,12 +14,13 @@ export default function Dashboard() {
     const store = useSelector(state => state);
     const dispatch = useDispatch();
     let prodTag = store.prodTag;
+    let btnUI = [];
 
     //Run side effect only when products changes in redux
     useEffect(() => {
         fetchProducts();
         setProducts(store.products);
-    },[]);
+    }, []);
 
     //Fetch all products and store in redux global state
     async function fetchProducts() {
@@ -36,6 +38,7 @@ export default function Dashboard() {
         }
     }
 
+
     //Render filter buttons
     let buttons = {
         "AllProducts": "All Products",
@@ -45,16 +48,17 @@ export default function Dashboard() {
         "jacket": "Jackets",
         "shirt": "Shirts"
     }
-    let btnUI = [];
+
     Object.entries(buttons).forEach(([key, val]) => {
-        if(key == prodTag){
+        //Highlight selected filter
+        if (key == prodTag) {
             btnUI.push(<button type="button" onClick={() => updateProdTag(key)} className="filter_btn active__filter">{val}</button>)
-        }else{
+        } else {
             btnUI.push(<button type="button" onClick={() => updateProdTag(key)} className="filter_btn">{val}</button>)
         }
     })
 
-    //Update selected product tag in redux
+    //Update selected product tag in redux store
     const updateProdTag = (tag) => {
         dispatch({
             type: 'UPDATE_PROD_TAG',
@@ -103,6 +107,8 @@ export default function Dashboard() {
                     <hr />
                 </div>
             </div>
+
+            {/* Render products */}
             <div className="main">
                 <Products />
             </div>
